@@ -1,3 +1,9 @@
+apt-btrfs-snapshot (0.3.2) UNRELEASED; urgency=low
+
+  * merged fix from Stavros Korokithakis for set_default, thanks.
+
+ -- Michael Vogt <michael.vogt@ubuntu.com>  Thu, 12 Jul 2012 09:00:32 +0200
+
 apt-btrfs-snapshot (0.3.1) quantal; urgency=low
 
   * Add missing build dependency on pyflakes for test_pyflakes.py
