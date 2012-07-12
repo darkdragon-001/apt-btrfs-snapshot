@@ -1,8 +1,8 @@
-apt-btrfs-snapshot (0.3.3) UNRELEASED; urgency=low
+apt-btrfs-snapshot (0.3.3) quantal; urgency=low
 
   * add missing pep8 depedency to fix FTBFS
 
- -- Michael Vogt <michael.vogt@ubuntu.com>  Thu, 12 Jul 2012 13:21:07 +0200
+ -- Michael Vogt <michael.vogt@ubuntu.com>  Thu, 12 Jul 2012 13:30:25 +0200
 
 apt-btrfs-snapshot (0.3.2) quantal; urgency=low
 
