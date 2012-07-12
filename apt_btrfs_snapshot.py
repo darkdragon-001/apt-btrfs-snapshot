@@ -123,7 +123,7 @@ class AptBtrfsSnapshot(object):
             return False
         # check the fstab
         entry = self._get_supported_btrfs_root_fstab_entry()
-        return entry != None
+        return entry is not None
 
     def _get_supported_btrfs_root_fstab_entry(self):
         """ return the supported btrfs root FstabEntry or None """
@@ -156,7 +156,7 @@ class AptBtrfsSnapshot(object):
         return res
 
     def _get_now_str(self):
-        return  datetime.datetime.now().replace(microsecond=0).isoformat(
+        return datetime.datetime.now().replace(microsecond=0).isoformat(
             str('_'))
 
     def create_btrfs_root_snapshot(self, additional_prefix=""):

@@ -10,6 +10,7 @@ Build-Depends: debhelper (>= 7.0.50~),
                python (>= 2.6.5-2~),
                python-distutils-extra,
                python-mock,
+               pep8,
 X-Python-Version: all
 X-Python3-Version: >= 3.2
 Standards-Version: 3.9.3
