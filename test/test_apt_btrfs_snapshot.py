@@ -2,7 +2,7 @@
 
 try:
     from StringIO import StringIO
-    StringIO # pyflakes
+    StringIO  # pyflakes
 except ImportError:
     from io import StringIO
 import mock
@@ -17,6 +17,7 @@ from apt_btrfs_snapshot import (
     AptBtrfsSnapshot,
     AptBtrfsRootWithNoatimeError,
     )
+
 
 class TestFstab(unittest.TestCase):
 
@@ -122,7 +123,7 @@ class TestFstab(unittest.TestCase):
         apt_btrfs = AptBtrfsSnapshot(
             fstab=os.path.join(self.testdir, "data", "fstab"))
         t = apt_btrfs._parse_older_than_to_unixtime("5d")
-        self.assertTrue( t < time.time() - 5*60*60*24)
+        self.assertTrue((t < time.time()) - (5 * 60 * 60 * 24))
 
 if __name__ == "__main__":
     unittest.main()

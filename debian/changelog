@@ -1,6 +1,9 @@
 apt-btrfs-snapshot (0.3.2) UNRELEASED; urgency=low
 
   * merged fix from Stavros Korokithakis for set_default, thanks.
+  * tests/test_pep8.py:
+    - add test to ensure we are pep8 clean
+  * cleanup to be fully pep8 clean
 
  -- Michael Vogt <michael.vogt@ubuntu.com>  Thu, 12 Jul 2012 09:00:32 +0200
 

@@ -1,6 +1,7 @@
 import subprocess
 import unittest
 
+
 class TestPyflakesClean(unittest.TestCase):
     """ ensure that the tree is pyflakes clean """
 

@@ -107,7 +107,7 @@ class AptBtrfsSnapshot(object):
     # normal snapshot
     SNAP_PREFIX = "@apt-snapshot-"
     # backname when changing
-    BACKUP_PREFIX = SNAP_PREFIX+"old-root-"
+    BACKUP_PREFIX = SNAP_PREFIX + "old-root-"
 
     def __init__(self, fstab="/etc/fstab"):
         self.fstab = Fstab(fstab)
@@ -156,14 +156,15 @@ class AptBtrfsSnapshot(object):
         return res
 
     def _get_now_str(self):
-        return  datetime.datetime.now().replace(microsecond=0).isoformat(str('_'))
+        return  datetime.datetime.now().replace(microsecond=0).isoformat(
+            str('_'))
 
     def create_btrfs_root_snapshot(self, additional_prefix=""):
         mp = self.mount_btrfs_root_volume()
         snap_id = self._get_now_str()
         res = self.commands.btrfs_subvolume_snapshot(
             os.path.join(mp, "@"),
-            os.path.join(mp, self.SNAP_PREFIX+additional_prefix+snap_id))
+            os.path.join(mp, self.SNAP_PREFIX + additional_prefix + snap_id))
         self.umount_btrfs_root_volume()
         return res
 
@@ -214,7 +215,8 @@ class AptBtrfsSnapshot(object):
             print("  \n".join(self.get_btrfs_root_snapshots_list(
                     older_than=older_than_unixtime)))
         except AptBtrfsRootWithNoatimeError:
-            sys.stderr.write("Error: fstab option 'noatime' incompatible with option")
+            sys.stderr.write("Error: fstab option 'noatime' incompatible "
+                             "with option")
             return False
         return True
 
@@ -226,7 +228,8 @@ class AptBtrfsSnapshot(object):
                 older_than=older_than_unixtime):
                 res &= self.delete_snapshot(snap)
         except AptBtrfsRootWithNoatimeError:
-            sys.stderr.write("Error: fstab option 'noatime' incompatible with option")
+            sys.stderr.write("Error: fstab option 'noatime' incompatible with "
+                             "option")
             return False
         return res
 
@@ -245,9 +248,11 @@ class AptBtrfsSnapshot(object):
             backup = os.path.join(mp, self.BACKUP_PREFIX + self._get_now_str())
             os.rename(default_root, backup)
             os.rename(new_root, default_root)
-            print("Default changed to %s, please reboot for changes to take effect." % snapshot_name)
+            print("Default changed to %s, please reboot for changes to take "
+                  "effect." % snapshot_name)
         else:
-            print("You have selected an invalid snapshot. Please make sure that it exists, and that it is not \"@\".")
+            print("You have selected an invalid snapshot. Please make sure "
+                  "that it exists, and that it is not \"@\".")
         self.umount_btrfs_root_volume()
         return True
 
