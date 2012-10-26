@@ -1,3 +1,9 @@
+apt-btrfs-snapshot (0.3.4) raring; urgency=low
+
+  * Build depend on python3-all.
+
+ -- Dmitrijs Ledkovs <dmitrij.ledkov@ubuntu.com>  Fri, 26 Oct 2012 10:23:37 +0100
+
 apt-btrfs-snapshot (0.3.3) quantal; urgency=low
 
   * add missing pep8 depedency to fix FTBFS
