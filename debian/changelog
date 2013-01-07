@@ -1,3 +1,9 @@
+apt-btrfs-snapshot (0.3.4.1) raring; urgency=low
+
+  * Fix FTBFS due to newer, more strict, pep8.
+
+ -- Dmitrijs Ledkovs <dmitrij.ledkov@ubuntu.com>  Sun, 06 Jan 2013 02:41:49 +0000
+
 apt-btrfs-snapshot (0.3.4) raring; urgency=low
 
   * Build depend on python3-all.

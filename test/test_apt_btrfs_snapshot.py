@@ -16,7 +16,7 @@ sys.path.insert(0, ".")
 from apt_btrfs_snapshot import (
     AptBtrfsSnapshot,
     AptBtrfsRootWithNoatimeError,
-    )
+)
 
 
 class TestFstab(unittest.TestCase):

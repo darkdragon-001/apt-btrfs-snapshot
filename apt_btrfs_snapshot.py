@@ -128,9 +128,10 @@ class AptBtrfsSnapshot(object):
     def _get_supported_btrfs_root_fstab_entry(self):
         """ return the supported btrfs root FstabEntry or None """
         for entry in self.fstab:
-            if (entry.mountpoint == "/" and
-                entry.fstype == "btrfs" and
-                "subvol=@" in entry.options):
+            if (
+                    entry.mountpoint == "/" and
+                    entry.fstype == "btrfs" and
+                    "subvol=@" in entry.options):
                 return entry
         return None
 
@@ -213,7 +214,7 @@ class AptBtrfsSnapshot(object):
         try:
             print("Available snapshots older than '%s':" % timefmt)
             print("  \n".join(self.get_btrfs_root_snapshots_list(
-                    older_than=older_than_unixtime)))
+                older_than=older_than_unixtime)))
         except AptBtrfsRootWithNoatimeError:
             sys.stderr.write("Error: fstab option 'noatime' incompatible "
                              "with option")
@@ -225,7 +226,7 @@ class AptBtrfsSnapshot(object):
         older_than_unixtime = self._parse_older_than_to_unixtime(timefmt)
         try:
             for snap in self.get_btrfs_root_snapshots_list(
-                older_than=older_than_unixtime):
+                    older_than=older_than_unixtime):
                 res &= self.delete_snapshot(snap)
         except AptBtrfsRootWithNoatimeError:
             sys.stderr.write("Error: fstab option 'noatime' incompatible with "
@@ -241,9 +242,10 @@ class AptBtrfsSnapshot(object):
         """ set new default """
         mp = self.mount_btrfs_root_volume()
         new_root = os.path.join(mp, snapshot_name)
-        if (os.path.isdir(new_root) and
-            snapshot_name.startswith("@") and
-            snapshot_name != "@"):
+        if (
+                os.path.isdir(new_root) and
+                snapshot_name.startswith("@") and
+                snapshot_name != "@"):
             default_root = os.path.join(mp, "@")
             backup = os.path.join(mp, self.BACKUP_PREFIX + self._get_now_str())
             os.rename(default_root, backup)
