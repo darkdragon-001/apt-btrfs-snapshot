@@ -1,3 +1,9 @@
+apt-btrfs-snapshot (0.3.4.2) trusty; urgency=medium
+
+  * Rewrite the python shebang path to /usr/bin/python3.
+
+ -- Matthias Klose <doko@ubuntu.com>  Thu, 20 Feb 2014 16:13:50 +0100
+
 apt-btrfs-snapshot (0.3.4.1) raring; urgency=low
 
   * Fix FTBFS due to newer, more strict, pep8.
