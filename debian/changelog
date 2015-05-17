@@ -1,3 +1,9 @@
+apt-btrfs-snapshot (3.4.4.3) UNRELEASED; urgency=medium
+
+  * Fix detection of btrfs binary on Debinan stretch (LP: #1454306)
+
+ -- Yurii Kolesnukov <yurikoles@hutba.org>  Sun, 17 May 2015 08:03:57 +0300
+
 apt-btrfs-snapshot (0.3.4.2) trusty; urgency=medium
 
   * Rewrite the python shebang path to /usr/bin/python3.
