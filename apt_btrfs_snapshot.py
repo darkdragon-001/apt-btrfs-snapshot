@@ -119,7 +119,8 @@ class AptBtrfsSnapshot(object):
             by checking if the right fs layout is used etc
         """
         # check for the helper binary
-        if not os.path.exists("/sbin/btrfs"):
+        from distutils.spawn import find_executable
+        if not (find_executable("btrfs")):
             return False
         # check the fstab
         entry = self._get_supported_btrfs_root_fstab_entry()

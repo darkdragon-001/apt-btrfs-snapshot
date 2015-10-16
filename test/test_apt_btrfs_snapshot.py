@@ -26,7 +26,7 @@ class TestFstab(unittest.TestCase):
 
     @mock.patch('os.path.exists')
     def test_fstab_detect_snapshot(self, mock_commands):
-        #Using python-mock 0.7 style, for precise compatibility
+        # Using python-mock 0.7 style, for precise compatibility
         mock_commands.side_effect = lambda f: f in ('/sbin/btrfs')
         apt_btrfs = AptBtrfsSnapshot(
             fstab=os.path.join(self.testdir, "data", "fstab"))
