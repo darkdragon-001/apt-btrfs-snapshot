@@ -25,6 +25,9 @@ import sys
 import time
 import tempfile
 
+import gettext
+from gettext import gettext as _
+
 
 class AptBtrfsSnapshotError(Exception):
     pass
@@ -164,11 +167,17 @@ class AptBtrfsSnapshot(object):
     def create_btrfs_root_snapshot(self, additional_prefix=""):
         mp = self.mount_btrfs_root_volume()
         snap_id = self._get_now_str()
-        res = self.commands.btrfs_subvolume_snapshot(
-            os.path.join(mp, "@"),
-            os.path.join(mp, self.SNAP_PREFIX + additional_prefix + snap_id))
-        self.umount_btrfs_root_volume()
-        return res
+        source = os.path.join(mp, "@")
+        target = os.path.join(mp, self.SNAP_PREFIX + additional_prefix + snap_id)
+
+        if os.path.exists(target):
+            print(_("INFO: snapshot directory '%s' already exists, not creating duplicate")
+                % (target,))
+            return True
+        else:
+            res = self.commands.btrfs_subvolume_snapshot(source, target)
+            self.umount_btrfs_root_volume()
+            return res
 
     def get_btrfs_root_snapshots_list(self, older_than=0):
         """ get the list of available snapshot

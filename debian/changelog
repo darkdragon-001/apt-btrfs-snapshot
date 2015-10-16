@@ -3,6 +3,11 @@ apt-btrfs-snapshot (3.5) UNRELEASED; urgency=medium
   [ Yurii Kolesnukov ]
   * Fix detection of btrfs binary on Debinan stretch (LP: #1454306)
 
+  [ Bram Geron ]
+  * lp:~bgeron/apt-btrfs-snapshot/fix-update-fail:
+    - Skip making a snapshot if one was already made in the current second.
+      (LP: #853849)
+
  -- Michael Vogt <michael.vogt@ubuntu.com>  Fri, 16 Oct 2015 11:19:30 +0200
 
 apt-btrfs-snapshot (0.3.4.2) trusty; urgency=medium
