@@ -7,6 +7,8 @@ apt-btrfs-snapshot (3.5) UNRELEASED; urgency=medium
   * lp:~bgeron/apt-btrfs-snapshot/fix-update-fail:
     - Skip making a snapshot if one was already made in the current second.
       (LP: #853849)
+  * lp:~bgeron/apt-btrfs-snapshot/silence-apt:
+    - improve apt-btfs-snapshot supported message
 
  -- Michael Vogt <michael.vogt@ubuntu.com>  Fri, 16 Oct 2015 11:19:30 +0200
 
