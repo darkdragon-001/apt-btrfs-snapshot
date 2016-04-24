@@ -1,3 +1,9 @@
+apt-btrfs-snapshot (3.5~rt1) UNRELEASED; urgency=medium
+
+  * local build
+
+ -- Reinhard Tartler <siretart@tauware.de>  Sun, 24 Apr 2016 09:43:42 -0400
+
 apt-btrfs-snapshot (3.5) UNRELEASED; urgency=medium
 
   [ Yurii Kolesnukov ]
