@@ -1,11 +1,8 @@
-apt-btrfs-snapshot (3.5~rt1) UNRELEASED; urgency=medium
+apt-btrfs-snapshot (3.5) yakkety; urgency=medium
 
-  * local build
-
- -- Reinhard Tartler <siretart@tauware.de>  Sun, 24 Apr 2016 09:43:42 -0400
-
-apt-btrfs-snapshot (3.5) UNRELEASED; urgency=medium
-
+  [ Michael Vogt ]
+  * Merge changes from Doko and others
+  
   [ Yurii Kolesnukov ]
   * Fix detection of btrfs binary on Debinan stretch (LP: #1454306)
 
@@ -16,7 +13,10 @@ apt-btrfs-snapshot (3.5) UNRELEASED; urgency=medium
   * lp:~bgeron/apt-btrfs-snapshot/silence-apt:
     - improve apt-btfs-snapshot supported message
 
- -- Michael Vogt <michael.vogt@ubuntu.com>  Fri, 16 Oct 2015 11:19:30 +0200
+  [ Reinhard Tartler ]
+  * Fix pep8 / pylint tests
+
+ -- Reinhard Tartler <siretart@tauware.de>  Thu, 28 Apr 2016 07:07:25 -0400
 
 apt-btrfs-snapshot (0.3.4.2) trusty; urgency=medium
 
