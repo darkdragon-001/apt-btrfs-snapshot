@@ -25,10 +25,10 @@ class TestFstab(unittest.TestCase):
     def setUp(self):
         self.testdir = os.path.dirname(os.path.abspath(__file__))
 
-    @mock.patch('os.path.exists')
+    @mock.patch('apt_btrfs_snapshot.find_executable')
     def test_fstab_detect_snapshot(self, mock_commands):
         # Using python-mock 0.7 style, for precise compatibility
-        mock_commands.side_effect = lambda f: f in ('/sbin/btrfs')
+        mock_commands.side_effect = lambda f: f == 'btrfs'
         apt_btrfs = AptBtrfsSnapshot(
             fstab=os.path.join(self.testdir, "data", "fstab"))
         self.assertTrue(apt_btrfs.snapshots_supported())

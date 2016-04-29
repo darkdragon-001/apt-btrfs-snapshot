@@ -1,3 +1,9 @@
+apt-btrfs-snapshot (3.5.1) yakkety; urgency=medium
+
+  * fix mock of "btrfs" binary
+
+ -- Michael Vogt <michael.vogt@ubuntu.com>  Fri, 29 Apr 2016 17:13:19 +0200
+
 apt-btrfs-snapshot (3.5) yakkety; urgency=medium
 
   [ Michael Vogt ]

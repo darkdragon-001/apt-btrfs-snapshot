@@ -25,6 +25,8 @@ import sys
 import time
 import tempfile
 
+from distutils.spawn import find_executable
+
 from gettext import gettext as _
 
 
@@ -120,8 +122,6 @@ class AptBtrfsSnapshot(object):
         """ verify that the system supports apt btrfs snapshots
             by checking if the right fs layout is used etc
         """
-        # check for the helper binary
-        from distutils.spawn import find_executable
         if not (find_executable("btrfs")):
             return False
         # check the fstab
