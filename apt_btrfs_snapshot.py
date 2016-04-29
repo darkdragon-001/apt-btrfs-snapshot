@@ -25,7 +25,6 @@ import sys
 import time
 import tempfile
 
-import gettext
 from gettext import gettext as _
 
 
@@ -168,11 +167,12 @@ class AptBtrfsSnapshot(object):
         mp = self.mount_btrfs_root_volume()
         snap_id = self._get_now_str()
         source = os.path.join(mp, "@")
-        target = os.path.join(mp, self.SNAP_PREFIX + additional_prefix + snap_id)
+        target = os.path.join(mp, self.SNAP_PREFIX + additional_prefix +
+                              snap_id)
 
         if os.path.exists(target):
-            print(_("INFO: snapshot directory '%s' already exists, not creating duplicate")
-                % (target,))
+            print(_("INFO: snapshot directory '%s' already exists, "
+                    "not creating duplicate") % (target,))
             return True
         else:
             res = self.commands.btrfs_subvolume_snapshot(source, target)

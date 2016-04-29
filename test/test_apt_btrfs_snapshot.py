@@ -11,12 +11,13 @@ import sys
 import time
 import unittest
 
-sys.path.insert(0, "..")
-sys.path.insert(0, ".")
 from apt_btrfs_snapshot import (
     AptBtrfsSnapshot,
     AptBtrfsRootWithNoatimeError,
 )
+
+sys.path.insert(0, "..")
+sys.path.insert(0, ".")
 
 
 class TestFstab(unittest.TestCase):
