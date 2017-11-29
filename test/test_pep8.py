@@ -1,7 +1,7 @@
 
 import os
-import subprocess
 import unittest
+import pep8
 
 
 class PackagePep8TestCase(unittest.TestCase):
@@ -9,7 +9,8 @@ class PackagePep8TestCase(unittest.TestCase):
     def test_pep8(self):
         basepath = os.path.abspath(
             os.path.join(os.path.dirname(__file__), ".."))
-        res = subprocess.call(["/usr/bin/pep8", "--repeat", basepath])
+        style = pep8.StyleGuide(quiet=True)
+        res = style.check_files(paths=[basepath]).total_errors
         self.assertEqual(res, 0)
 
 
