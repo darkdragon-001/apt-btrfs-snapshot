@@ -13,7 +13,6 @@ import unittest
 
 from apt_btrfs_snapshot import (
     AptBtrfsSnapshot,
-    AptBtrfsRootWithNoatimeError,
 )
 
 sys.path.insert(0, "..")
@@ -47,26 +46,6 @@ class TestFstab(unittest.TestCase):
             fstab=os.path.join(self.testdir, "data", "fstab"))
         self.assertEqual(apt_btrfs._uuid_for_mountpoint("/"),
                          "UUID=fe63f598-1906-478e-acc7-f74740e78d1f")
-
-    @mock.patch('sys.stdout')
-    @mock.patch('sys.stderr')
-    def test_fstab_noatime(self, mock_stdout, mock_stderr):
-        mock_stdout.side_effect = StringIO()
-        mock_stderr.side_effect = StringIO()
-        apt_btrfs = AptBtrfsSnapshot(
-            fstab=os.path.join(self.testdir, "data", "fstab.bug833980"))
-        # ensure our test is right
-        entry = apt_btrfs._get_supported_btrfs_root_fstab_entry()
-        self.assertTrue("noatime" in entry.options)
-        # ensure we get the right exception
-        self.assertRaises(AptBtrfsRootWithNoatimeError,
-                          apt_btrfs.get_btrfs_root_snapshots_list,
-                          "1d")
-        # and the right return codes from the commands
-        self.assertEqual(apt_btrfs.clean_btrfs_root_snapshots_older_than("1d"),
-                         False)
-        self.assertEqual(apt_btrfs.print_btrfs_root_snapshots_older_than("1d"),
-                         False)
 
     @mock.patch('apt_btrfs_snapshot.LowLevelCommands')
     def test_mount_btrfs_root_volume(self, mock_commands):
@@ -125,6 +104,14 @@ class TestFstab(unittest.TestCase):
             fstab=os.path.join(self.testdir, "data", "fstab"))
         t = apt_btrfs._parse_older_than_to_datetime("5d")
         self.assertTrue(t <= datetime.datetime.now()-datetime.timedelta(5))
+
+    def test_parser_snapshot_to_datetime(self):
+        apt_btrfs = AptBtrfsSnapshot(
+            fstab=os.path.join(self.testdir, "data", "fstab"))
+        e = "@apt-snapshot-2017-12-15_11:26:24"
+        t_parsed = apt_btrfs._parse_snapshot_to_datetime(e)
+        t_expected = datetime.datetime(2017, 12, 15, 11, 26, 24)
+        self.assertEqual(t_parsed, t_expected)
 
 
 if __name__ == "__main__":
