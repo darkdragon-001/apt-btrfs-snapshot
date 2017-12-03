@@ -90,7 +90,7 @@ if __name__ == "__main__":
         sys.exit(1)
 
     apt_btrfs = AptBtrfsSnapshot()
-    if not apt_btrfs.snapshots_supported():
+    if (args.command != "supported") and (not apt_btrfs.snapshots_supported()):
         print(_("The system does not support apt-btrfs-snapshot"))
         sys.exit(1)
 
