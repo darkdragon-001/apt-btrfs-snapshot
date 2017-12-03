@@ -5,10 +5,10 @@ try:
     StringIO  # pyflakes
 except ImportError:
     from io import StringIO
+import datetime
 import mock
 import os
 import sys
-import time
 import unittest
 
 from apt_btrfs_snapshot import (
@@ -120,11 +120,11 @@ class TestFstab(unittest.TestCase):
         (args, kwargs) = apt_btrfs.commands.btrfs_delete_snapshot.call_args
         self.assertTrue(args[0].endswith("/lala"))
 
-    def test_parser_older_than_to_unixtime(self):
+    def test_parser_older_than_to_datetime(self):
         apt_btrfs = AptBtrfsSnapshot(
             fstab=os.path.join(self.testdir, "data", "fstab"))
-        t = apt_btrfs._parse_older_than_to_unixtime("5d")
-        self.assertTrue((t < time.time()) - (5 * 60 * 60 * 24))
+        t = apt_btrfs._parse_older_than_to_datetime("5d")
+        self.assertTrue(t <= datetime.datetime.now()-datetime.timedelta(5))
 
 
 if __name__ == "__main__":
