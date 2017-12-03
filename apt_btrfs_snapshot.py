@@ -254,8 +254,7 @@ class AptBtrfsSnapshot(object):
         new_root = os.path.join(mp, snapshot_name)
         if (
                 os.path.isdir(new_root) and
-                snapshot_name.startswith("@") and
-                snapshot_name != "@"):
+                snapshot_name.startswith(self.SNAP_PREFIX)):
             default_root = os.path.join(mp, "@")
             backup = os.path.join(mp, self.BACKUP_PREFIX + self._get_now_str())
             os.rename(default_root, backup)
