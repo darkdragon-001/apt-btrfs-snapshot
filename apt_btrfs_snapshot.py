@@ -138,7 +138,7 @@ class AptBtrfsSnapshot(object):
                 return entry
         return None
 
-    def _uuid_for_mountpoint(self, mountpoint, fstab="/etc/fstab"):
+    def _uuid_for_mountpoint(self, mountpoint):
         """ return the device or UUID for the given mountpoint """
         for entry in self.fstab:
             if entry.mountpoint == mountpoint:
