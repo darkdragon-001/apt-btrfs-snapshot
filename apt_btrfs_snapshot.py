@@ -174,11 +174,23 @@ class AptBtrfsSnapshot(object):
             return res
 
     def _parse_snapshot_to_datetime(self, snapshot):
+        """ extract creation time from snapshot name
+        """
         if not snapshot.startswith(self.SNAP_PREFIX):
             raise Exception("Invalid snapshot")
 
+        # get date substring
+        if len(snapshot) < (len(self.SNAP_PREFIX)+19):
+            raise Exception("Invalid snapshot")
         timestamp = snapshot[-19:]  # timestamp is suffix
-        timestamp = datetime.datetime.strptime(timestamp, '%Y-%m-%d_%H:%M:%S')
+
+        # parse date
+        try:
+            format = '%Y-%m-%d_%H:%M:%S'
+            timestamp = datetime.datetime.strptime(timestamp, format)
+        except ValueError as err:
+            raise Exception("Invalid snapshot: "+str(err))
+
         return timestamp
 
     def get_btrfs_root_snapshots_list(self, older_than=None):
