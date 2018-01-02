@@ -1,3 +1,22 @@
+apt-btrfs-snapshot (3.5.1-ppa1) devel; urgency=medium
+
+  * Removed unused dependencies
+
+ -- Dark Dragon <darkdragon-001@web.de>  Tue, 02 Jan 2018 14:29:15 +0100
+
+apt-btrfs-snapshot (3.5.1-ppa) devel; urgency=medium
+
+  * Security fixes
+  * Consistent time zones
+  * Add support for noatime
+  * Run cronjob daily
+  * Improved testing
+  * Improved style
+  * Bumped dh version to 9
+  * Bumped standards version to 4.1.1
+
+ -- Dark Dragon <darkdragon-001@web.de>  Tue, 02 Jan 2018 14:02:00 +0100
+
 apt-btrfs-snapshot (3.5.1) yakkety; urgency=medium
 
   * fix mock of "btrfs" binary
