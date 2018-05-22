@@ -1,3 +1,9 @@
+apt-btrfs-snapshot (3.5.2) cosmic; urgency=medium
+
+  * Change btrfs-tools dependency to progs.
+
+ -- Dimitri John Ledkov <xnox@ubuntu.com>  Tue, 22 May 2018 10:56:22 +0100
+
 apt-btrfs-snapshot (3.5.1) yakkety; urgency=medium
 
   * fix mock of "btrfs" binary
