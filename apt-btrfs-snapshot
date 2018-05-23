@@ -19,13 +19,9 @@
 
 
 import argparse
-import datetime
 import logging
 import os
-import string
-import subprocess
 import sys
-import tempfile
 
 import gettext
 from gettext import gettext as _

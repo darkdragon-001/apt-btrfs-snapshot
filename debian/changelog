@@ -1,6 +1,7 @@
 apt-btrfs-snapshot (3.5.2) cosmic; urgency=medium
 
   * Change btrfs-tools dependency to progs.
+  * Fix new pep8/pyflakes warnings.
 
  -- Dimitri John Ledkov <xnox@ubuntu.com>  Tue, 22 May 2018 10:56:22 +0100
 

@@ -184,7 +184,7 @@ class AptBtrfsSnapshot(object):
             If "older_then" is given (in unixtime format) it will only include
             snapshots that are older then the given date)
         """
-        l = []
+        result = []
         # if older_than is used, ensure that the rootfs does not use
         # "noatime"
         if older_than != 0:
@@ -203,9 +203,9 @@ class AptBtrfsSnapshot(object):
                 # created (to check if there is support for btrfs)
                 atime = os.path.getatime(os.path.join(mp, e, "etc", "fstab"))
                 if atime < older_than:
-                    l.append(e)
+                    result.append(e)
         self.umount_btrfs_root_volume()
-        return l
+        return result
 
     def print_btrfs_root_snapshots(self):
         print("Available snapshots:")
