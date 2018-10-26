@@ -23,7 +23,7 @@ Architecture: all
 Depends: ${python:Depends},
          ${python3:Depends},
          ${misc:Depends},
-         btrfs-tools
+         btrfs-progs
 Description: Automatically create snapshot on apt operations
  This will create a btrfs snapshot of the root filesystem each time
  that apt installs/removes/upgrades a software package. 
