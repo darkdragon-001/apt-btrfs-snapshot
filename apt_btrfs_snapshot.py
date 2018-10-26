@@ -90,7 +90,7 @@ class LowLevelCommands(object):
         return ret == 0
 
     def btrfs_subvolume_snapshot(self, source, dest):
-        ret = subprocess.call(["btrfs", "subvolume", "snapshot",
+        ret = subprocess.call(["btrfs", "subvolume", "snapshot", "-r",
                                source, dest])
         return ret == 0
 
