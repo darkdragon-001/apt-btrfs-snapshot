@@ -1,3 +1,9 @@
+apt-btrfs-snapshot (3.5.3) focal; urgency=medium
+
+  * Build using python2.
+
+ -- Matthias Klose <doko@ubuntu.com>  Tue, 14 Jan 2020 19:52:42 +0100
+
 apt-btrfs-snapshot (3.5.2) cosmic; urgency=medium
 
   * Change btrfs-tools dependency to progs.
