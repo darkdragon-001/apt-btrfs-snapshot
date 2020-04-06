@@ -1,11 +1,6 @@
-apt-btrfs-snapshot (3.5.2-ppa2) devel; urgency=medium
+apt-btrfs-snapshot (3.5.3-ppa1) devel; urgency=medium
 
   * Removed unused dependencies
-
- -- Dark Dragon <darkdragon-001@web.de>  Tue, 02 Jan 2018 14:29:15 +0100
-
-apt-btrfs-snapshot (3.5.2-ppa1) devel; urgency=medium
-
   * Security fixes
   * Consistent time zones
   * Add support for noatime
@@ -15,7 +10,13 @@ apt-btrfs-snapshot (3.5.2-ppa1) devel; urgency=medium
   * Bumped dh version to 9
   * Bumped standards version to 4.1.1
 
- -- Dark Dragon <darkdragon-001@web.de>  Tue, 02 Jan 2018 14:02:00 +0100
+ -- Dark Dragon <darkdragon-001@web.de>  Mon, 06 Apr 2020 16:06:00 +0100
+
+apt-btrfs-snapshot (3.5.3) focal; urgency=medium
+
+  * Build using python2.
+
+ -- Matthias Klose <doko@ubuntu.com>  Tue, 14 Jan 2020 19:52:42 +0100
 
 apt-btrfs-snapshot (3.5.2) cosmic; urgency=medium
 
