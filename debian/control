@@ -3,6 +3,7 @@ Section: admin
 Priority: optional
 Maintainer: Michael Vogt <michael.vogt@ubuntu.com>
 Build-Depends: debhelper (>= 7.0.50~),
+               debhelper-compat (= 12),
                dh-python,
                python3-all,
                python3-distutils-extra,
@@ -14,7 +15,7 @@ Build-Depends: debhelper (>= 7.0.50~),
                python-mock,
                python-pycodestyle,
 X-Python-Version: all
-X-Python3-Version: >= 3.2
+X-Python3-Version: >= 3.7
 Standards-Version: 4.1.1
 Vcs-Bzr: https://code.launchpad.net/apt-btrfs-snapshot
 

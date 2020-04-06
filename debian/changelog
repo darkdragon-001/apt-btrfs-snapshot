@@ -1,4 +1,4 @@
-apt-btrfs-snapshot (3.5.3-ppa1) devel; urgency=medium
+apt-btrfs-snapshot (3.5.3-0ppa1) devel; urgency=medium
 
   * Removed unused dependencies
   * Security fixes
@@ -7,7 +7,9 @@ apt-btrfs-snapshot (3.5.3-ppa1) devel; urgency=medium
   * Run cronjob daily
   * Improved testing
   * Improved style
-  * Bumped dh version to 9
+  * Use pybuild build system
+  * Bumped Python3 version to 3.7
+  * Bumped dh version to 12
   * Bumped standards version to 4.1.1
 
  -- Dark Dragon <darkdragon-001@web.de>  Mon, 06 Apr 2020 16:06:00 +0100
