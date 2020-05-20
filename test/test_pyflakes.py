@@ -6,7 +6,7 @@ class TestPyflakesClean(unittest.TestCase):
     """ ensure that the tree is pyflakes clean """
 
     def test_pyflakes_clean(self):
-        self.assertEqual(subprocess.call(["pyflakes", "."]), 0)
+        self.assertEqual(subprocess.call(["pyflakes3", "."]), 0)
 
 
 if __name__ == "__main__":
