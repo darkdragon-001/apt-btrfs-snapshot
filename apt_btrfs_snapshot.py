@@ -67,7 +67,7 @@ class Fstab(list):
         super(Fstab, self).__init__()
 
         with open(fstab) as fstab_file:
-            for line in (l.strip() for l in fstab_file):
+            for line in (ln.strip() for ln in fstab_file):
                 if line == "" or line.startswith("#"):
                     continue
                 try:
