@@ -1,15 +1,13 @@
 #!/usr/bin/make -f
-PYTHON2:=$(shell pyversions -r)
 PYTHON3:=$(shell py3versions -r)
 py3sdo=set -e; $(foreach py, $(PYTHON3), $(py) $(1);)
-pyalldo=set -e; $(foreach py, $(PYTHON2) $(PYTHON3), $(py) $(1);)
 
 %:
-	dh $@ --with python2,python3 --buildsystem=pybuild
+	dh $@ --with python3 --buildsystem=pybuild
 
 ifeq (,$(filter nocheck,$(DEB_BUILD_OPTIONS)))
 override_dh_auto_test:
-	$(call pyalldo, -m unittest discover -vv test/)
+	$(call py3sdo, -m unittest discover -vv test/)
 endif
 
 override_dh_auto_build:
