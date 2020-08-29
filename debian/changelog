@@ -1,3 +1,9 @@
+apt-btrfs-snapshot (3.5.3-0ppa2) devel; urgency=medium
+
+  * Always unmount root volume
+
+ -- Dark Dragon <darkdragon-001@web.de>  Sat, 29 Aug 2020 23:44:31 +0200
+
 apt-btrfs-snapshot (3.5.3-0ppa1) devel; urgency=medium
 
   * Removed unused dependencies

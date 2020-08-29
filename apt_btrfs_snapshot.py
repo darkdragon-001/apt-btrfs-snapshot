@@ -164,14 +164,16 @@ class AptBtrfsSnapshot(object):
         target = os.path.join(mp, self.SNAP_PREFIX + additional_prefix +
                               snap_id)
 
+        res = False
         if os.path.exists(target):
             print(_("INFO: snapshot directory '%s' already exists, "
                     "not creating duplicate") % (target,))
-            return True
+            res = True
         else:
             res = self.commands.btrfs_subvolume_snapshot(source, target)
-            self.umount_btrfs_root_volume()
-            return res
+
+        self.umount_btrfs_root_volume()
+        return res
 
     def _parse_snapshot_to_datetime(self, snapshot):
         """ extract creation time from snapshot name
